@@ -107,13 +107,18 @@ class SearchStateCode extends Component {
     } else if (this.state.error === true && this.state.message !== "") {
       return (
         <div>
-          {Form}
-          <p>{this.state.message}</p>
+          <div
+            class="alert alert-danger"
+            role="alert"
+          >
+            {this.state.message}
+          </div>
+          <div className="row">{Form}</div>
         </div>
       );
     }
 
-    return <div>{Form}</div>;
+    return <div className="row">{Form}</div>;
   }
 }
 

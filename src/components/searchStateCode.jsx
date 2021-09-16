@@ -60,26 +60,48 @@ class SearchStateCode extends Component {
 
   render() {
     const Form = (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Nome:
+      <form onSubmit={this.handleSubmit} class="form-inline mb-2">
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="cep" class="sr-only">
+            CEP
+          </label>
           <input
             type="text"
+            placeholder="CEP"
             value={this.state.value}
             onChange={this.handleChange}
+            name="cep"
+            id="cep"
           />
-        </label>
-        <input type="submit" value="Enviar" />
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">
+          Enviar
+        </button>
       </form>
     );
     if (this.state.state !== "") {
       return (
         <div>
-          {Form}
-          <p>street: {this.state.street}</p>
-          <p>neighborhood: {this.state.neighborhood}</p>
-          <p>city: {this.state.city}</p>
-          <p>state: {this.state.state}</p>
+          <div className="row">{Form}</div>
+
+          <div className="row">
+            <div class="card col-6">
+              <div class="card-header">Street</div>
+              <div class="card-body">{this.state.street}</div>
+            </div>
+            <div class="card col-6">
+              <div class="card-header">Neighborhood</div>
+              <div class="card-body">{this.state.neighborhood}</div>
+            </div>
+            <div class="card col-6">
+              <div class="card-header">City</div>
+              <div class="card-body">{this.state.city}</div>
+            </div>
+            <div class="card col-6">
+              <div class="card-header">State</div>
+              <div class="card-body">{this.state.state}</div>
+            </div>
+          </div>
         </div>
       );
     } else if (this.state.error === true && this.state.message !== "") {
@@ -91,11 +113,7 @@ class SearchStateCode extends Component {
       );
     }
 
-    return (
-      <div>
-        {Form}
-      </div>
-    );
+    return <div>{Form}</div>;
   }
 }
 

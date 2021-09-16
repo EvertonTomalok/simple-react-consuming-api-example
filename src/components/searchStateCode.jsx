@@ -87,11 +87,11 @@ class SearchStateCode extends Component {
           <div className="row">
             <div class="card col-6">
               <div class="card-header">Street</div>
-              <div class="card-body">{this.state.street}</div>
+              <div class="card-body">{this.state.street || '-'}</div>
             </div>
             <div class="card col-6">
               <div class="card-header">Neighborhood</div>
-              <div class="card-body">{this.state.neighborhood}</div>
+              <div class="card-body">{this.state.neighborhood || '-'}</div>
             </div>
             <div class="card col-6">
               <div class="card-header">City</div>
